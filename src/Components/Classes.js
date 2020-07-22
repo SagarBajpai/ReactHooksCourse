@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 
-class Classes extends Component {
+class CounterOnceAgain extends Component {
+  state = {
+    count: 0,
+  };
+
+  setCount = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
-    return <div>I'm a Class</div>;
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+
+        <button onClick={this.setCount}>Lets Count</button>
+      </div>
+    );
   }
 }
-
-export default Classes;
+export default CounterOnceAgain;

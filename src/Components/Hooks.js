@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Hooks = () => {
-  return <div>I'm a hook</div>;
+const CounterOnceAgain = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Lets Count</button>
+    </div>
+  );
 };
 
-export default Hooks;
+export default CounterOnceAgain;
