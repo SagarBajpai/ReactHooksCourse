@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "./Hooks/useFetch";
 
 const CounterOnceAgain = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [count, setCount] = useState(0);
 
-  const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia?`);
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("render");
+  }, [name, password]); //componentDidMount  - intialRender
+  //componenDidUpdate - update
 
   return (
     <div>
-      <div>{loading ? "loading..." : data}</div>
-      <button onClick={() => setCount((count) => count + 1)}>
-        Increment Me
-      </button>
       <input
         type="text"
         placeholder="name"

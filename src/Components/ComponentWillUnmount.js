@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "./Hooks/useFetch";
+import Hello from "./Hello";
 
 const CounterOnceAgain = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [count, setCount] = useState(0);
+  const [showHello, setShowHello] = useState(false);
 
-  const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia?`);
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const handleMouse = (e) => {
+      console.log(e);
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+    };
+  }, []);
+  //componentWillUnmount
 
   return (
     <div>
-      <div>{loading ? "loading..." : data}</div>
-      <button onClick={() => setCount((count) => count + 1)}>
-        Increment Me
-      </button>
+      {/* Try to Toogle Hello component to see unMounting phase of hello.js */}
+      {showHello ? <Hello /> : ""}
+
+      <button onClick={() => setShowHello(!showHello)}>Show Me Hello!</button>
       <input
         type="text"
         placeholder="name"
