@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AppContext } from "../App";
 
 const CounterOnceAgain = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [count, setCount] = useState(0);
+
+  //const data = useContext(AppContext); // Use Hooks if you wants to avoid wrapping your component
 
   return (
     <AppContext.Consumer>
