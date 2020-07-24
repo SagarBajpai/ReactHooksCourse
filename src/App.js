@@ -5,6 +5,7 @@ import CounterWithHook from "./Components/Hooks";
 import Index from "./Components/Index";
 import Context from "./store/Context";
 import Merchant from "./Components/Merchant";
+import Customer from "./Components/Customer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={Index}></Route>
           <Route exact path="/hook" component={CounterWithHook}></Route>
           <Route exact path="/merchant" component={Merchant}></Route>
+          <Route exact path="/customer" component={Customer}></Route>
         </Switch>
       </Context>
     </Router>

@@ -22,10 +22,19 @@ const hooksCombinedReducer = (combinedReducers) => {
 };
 
 const Context = (props) => {
+  const storeStr = (localStorage || {}).store;
+  const store = storeStr ? JSON.parse(storeStr) : {};
+  const { merchant } = store;
+
   const [state, dispatch] = hooksCombinedReducer({
-    merchant: useReducer(merchantReducer, merchantState),
+    merchant: useReducer(
+      merchantReducer,
+      merchantState,
+      () => merchant || merchantState // reducer intialisation
+    ),
     customer: useReducer(customerReducer, customerState),
   });
+  localStorage.setItem("store", JSON.stringify(state));
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
