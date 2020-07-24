@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { StateContext, DispatchContext } from "../App";
+import { StateContext, DispatchContext } from "../store/Context";
 
 const CounterOnceAgain = () => {
   const [name, setName] = useState("");
